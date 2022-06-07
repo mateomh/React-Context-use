@@ -15,7 +15,7 @@ const Header: React.FC = () => {
       <Navbar bg='dark' variant='dark' style={{height: 80}}>
         <Container>
           <Navbar.Brand>
-            <Link to="">Shopping cart</Link>
+            <Link to="/">Shopping cart</Link>
           </Navbar.Brand>
           <Navbar.Text>
             <FormControl
