@@ -1,33 +1,34 @@
-import React, { createContext, useReducer } from "react";
-import faker from '@faker-js/faker';
+import React, { createContext, useContext, useReducer } from "react";
+import { faker } from '@faker-js/faker';
+import { cartReducer } from "./Reducers";
 
 
-interface CartContext {
+interface CartContextObject {
   products: Object[];
   cart: Object[];
 };
 
-const sampleContext: CartContext = {
+const sampleContext: CartContextObject = {
   products: [...Array(20)].map(() =>({
-    id: faker.faker.datatype.uuid(),
-    name: faker.faker.commerce.productName(),
-    price: faker.faker.commerce.price(),
-    image: faker.faker.image.image(),
-    inStock: faker.faker.random.numeric(),
-    fastDelivery: faker.faker.datatype.boolean(),
-    rating: faker.faker.random.numeric(1,{bannedDigits:['0','6','7','8','9']}),
+    id: faker.datatype.uuid(),
+    name: faker.commerce.productName(),
+    price: faker.commerce.price(),
+    image: faker.image.image(),
+    inStock: faker.random.numeric(),
+    fastDelivery: faker.datatype.boolean(),
+    rating: faker.random.numeric(1,{bannedDigits:['0','6','7','8','9']}),
   })),
   cart: []
 }
 
-const Cart = createContext<CartContext>(sampleContext);
+const Cart = createContext<any | null>(null);
 
 const Context: React.FC<React.PropsWithChildren> = ({children}) => {
-  const [state, distpatch] = useReducer(reducer,sampleContext);
+  const [state, dispatch] = useReducer(cartReducer, sampleContext);
 
   return(
     <Cart.Provider
-      value={sampleContext}
+      value={{state, dispatch}}
     >
       {children}
     </Cart.Provider>
@@ -35,3 +36,7 @@ const Context: React.FC<React.PropsWithChildren> = ({children}) => {
 }
 
 export default Context;
+
+export const CartState = () => {
+  return useContext(Cart);
+}
