@@ -12,7 +12,7 @@ const Home: React.FC = () => {
       <div className="productContainer">
         {
           products.map((prod: Product) => {
-            return <SingleProduct />
+            return <SingleProduct prod={prod} key={prod.id}/>
           })
         }
       </div>
