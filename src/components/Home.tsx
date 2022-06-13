@@ -1,14 +1,23 @@
 import { CartState } from "../context/Context";
+import { Product } from "../interfaces/interfaces";
+import SingleProduct from "./SingleProduct";
 
 const Home: React.FC = () => {
-  const { state } = CartState();
+  const { state: { products } } = CartState();
 
-  console.log(state);
+  console.log(products);
 
   return(
-    <>
-      <h1>Home</h1>
-    </>
+    <div className="home">
+      <div className="productContainer">
+        {
+          products.map((prod: Product) => {
+            return <SingleProduct />
+          })
+        }
+      </div>
+
+    </div>
   )
 }
 

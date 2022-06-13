@@ -1,15 +1,16 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { faker } from '@faker-js/faker';
 import { cartReducer } from "./Reducers";
+import { Product } from "../interfaces/interfaces";
 
 
 interface CartContextObject {
-  products: Object[];
-  cart: Object[];
+  products: Product[];
+  cart: Product[];
 };
 
 const sampleContext: CartContextObject = {
-  products: [...Array(20)].map(() =>({
+  products: [...Array(20)].map((): Product =>({
     id: faker.datatype.uuid(),
     name: faker.commerce.productName(),
     price: faker.commerce.price(),
