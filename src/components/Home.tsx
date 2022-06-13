@@ -1,5 +1,6 @@
 import { CartState } from "../context/Context";
 import { Product } from "../interfaces/interfaces";
+import Filters from "./Filters";
 import SingleProduct from "./SingleProduct";
 
 const Home: React.FC = () => {
@@ -9,6 +10,7 @@ const Home: React.FC = () => {
 
   return(
     <div className="home">
+      <Filters />
       <div className="productContainer">
         {
           products.map((prod: Product) => {
