@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import Rating from "./Rating";
 
 const Filters:React.FC = () => {
+  const [rating, setRating] = useState(1);
+
   return(
     <div className="filters">
       <span className="title">Filter Products</span>
@@ -39,6 +43,10 @@ const Filters:React.FC = () => {
           type='checkbox'
           id={`inline-4`}
         />
+      </span>
+      <span>
+        <label style={{padding: 10}}>Rating</label>
+        <Rating rating={rating} onClick={(i) => setRating(i)} />
       </span>
       <Button variant="light">Clear Filters</Button>
     </div>

@@ -7,7 +7,7 @@ interface SingleProductProps {
 const SingleProduct: React.FC<SingleProductProps> = ({ prod }) => {
   return(
     <>
-      <span>prod.name</span>
+      <span>{prod.name}</span>
     </>
   );
 }
