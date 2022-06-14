@@ -1,4 +1,5 @@
 import { Button, Card } from "react-bootstrap";
+import { CartState } from "../context/Context";
 import { Product } from "../interfaces/interfaces";
 import Rating from "./Rating";
 
@@ -7,6 +8,8 @@ interface SingleProductProps {
 }
 
 const SingleProduct: React.FC<SingleProductProps> = ({ prod }) => {
+  const { state: { cart }, dispatch } = CartState();
+
   return(
     <>
       <div className="products">
@@ -25,8 +28,17 @@ const SingleProduct: React.FC<SingleProductProps> = ({ prod }) => {
                 : (<div>4 Day delivery</div>)}
               <Rating rating={parseInt(prod.rating)}/>
             </Card.Subtitle>
-            <Button variant="danger">Remove from cart</Button>
-            <Button disabled={!prod.inStock}>Add to cart</Button>
+            {
+              cart.some((p:Product) => p.id === prod.id) 
+              ? (<Button variant="danger" onClick={() =>{
+                dispatch({type: "REMOVE_FROM_CART", payload: prod})
+              }}>Remove from cart</Button>)
+              : (<Button disabled={!prod.inStock} onClick={() =>{
+                  dispatch({type: "ADD_TO_CART", payload: prod})
+                }}>Add to cart</Button>)
+            }
+            
+            
             {prod.inStock ? (<div>In stock</div>) : (<div>Out of stock</div>)}
           </Card.Body>
         </Card>
