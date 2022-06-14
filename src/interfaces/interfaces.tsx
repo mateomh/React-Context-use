@@ -7,3 +7,8 @@ export interface Product {
   fastDelivery: boolean;
   rating: string;
 };
+
+export interface CartContextObject {
+  products: Product[];
+  cart: Product[];
+};
