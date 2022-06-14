@@ -3,6 +3,7 @@ import { faker } from '@faker-js/faker';
 import { cartReducer } from "./Reducers";
 import { Product } from "../interfaces/interfaces";
 
+faker.seed(99);
 
 interface CartContextObject {
   products: Product[];
@@ -15,7 +16,7 @@ const sampleContext: CartContextObject = {
     name: faker.commerce.productName(),
     price: faker.commerce.price(),
     image: faker.image.image(),
-    inStock: faker.random.numeric(),
+    inStock: faker.datatype.boolean(),
     fastDelivery: faker.datatype.boolean(),
     rating: faker.random.numeric(1,{bannedDigits:['0','6','7','8','9']}),
   })),

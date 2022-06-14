@@ -3,7 +3,7 @@ export interface Product {
   name: string;
   price: string;
   image: string;
-  inStock: string;
+  inStock: boolean;
   fastDelivery: boolean;
   rating: string;
 };
