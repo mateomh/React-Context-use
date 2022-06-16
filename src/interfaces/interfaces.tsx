@@ -12,3 +12,11 @@ export interface CartContextObject {
   products: Product[];
   cart: Product[];
 };
+
+export interface FilterContextObject {
+  byStock: boolean;
+  byFastDelivery: boolean;
+  byRating: number;
+  serchString: string;
+  sort: any;
+}
