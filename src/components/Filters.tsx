@@ -74,7 +74,7 @@ const Filters:React.FC = () => {
         <label style={{padding: 10}}>Rating</label>
         <Rating rating={byRating} onClick={(i: number) => filterDispatch({
           type: "FILTER_BY_RATING",
-          payload: i + 1,
+          payload: i,
         })} />
       </span>
       <Button variant="light" onClick={() => filterDispatch({type: "CLEAR_FILTERS"})}>Clear Filters</Button>
