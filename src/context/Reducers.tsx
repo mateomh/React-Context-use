@@ -1,4 +1,3 @@
-import { reduceEachTrailingCommentRange } from "typescript";
 import { CartContextObject, FilterContextObject } from "../interfaces/interfaces";
 
 export const cartReducer = (state:CartContextObject, action:any) => {

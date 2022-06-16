@@ -2,7 +2,7 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 interface RatingProps {
   rating: number;
-  onClick?: React.Dispatch<React.SetStateAction<number>>;
+  onClick?: any;
 }
 
 const Rating:React.FC<RatingProps> = ({ rating, onClick }) => {
