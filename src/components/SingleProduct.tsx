@@ -26,7 +26,7 @@ const SingleProduct: React.FC<SingleProductProps> = ({ prod }) => {
               {prod.fastDelivery
                 ? (<div>Fast Delivery</div>)
                 : (<div>4 Day delivery</div>)}
-              <Rating rating={parseInt(prod.rating)}/>
+              <Rating rating={prod.rating}/>
             </Card.Subtitle>
             {
               cart.some((p:Product) => p.id === prod.id) 

@@ -11,9 +11,9 @@ const sampleContext: CartContextObject = {
     name: faker.commerce.productName(),
     price: faker.commerce.price(),
     image: faker.image.image(),
-    inStock: faker.datatype.boolean(),
+    inStock: Number(faker.random.numeric()),
     fastDelivery: faker.datatype.boolean(),
-    rating: faker.random.numeric(1,{bannedDigits:['0','6','7','8','9']}),
+    rating: Number(faker.random.numeric(1,{bannedDigits:['0','6','7','8','9']})),
   })),
   cart: []
 }

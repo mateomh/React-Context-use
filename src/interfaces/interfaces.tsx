@@ -3,9 +3,9 @@ export interface Product {
   name: string;
   price: string;
   image: string;
-  inStock: boolean;
+  inStock: number;
   fastDelivery: boolean;
-  rating: string;
+  rating: number;
 };
 
 export interface CartContextObject {
